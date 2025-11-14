@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Error <%= status || '' %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error <%= typeof status !== 'undefined' ? status : '' %></title>
   <link rel="stylesheet" href="/css/styles.css">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -80,14 +80,14 @@
   <header>
     <nav>
       <a href="/">Home</a>
-      <a href="/inventory/1">Sample Vehicle</a>
+      <a href="/inventory/vehicle/1">Sample Vehicle</a>
       <a href="/inventory/trigger-error">Trigger 500 Error</a>
     </nav>
   </header>
 
   <main>
     <div class="error-box">
-      <h1>Error <%= status || '' %></h1>
+      <h1>Error <%= typeof status !== 'undefined' ? status : '' %></h1>
       <p><%= message || "Something went wrong!" %></p>
       <a href="/">Return Home</a>
     </div>

@@ -9,19 +9,20 @@ const { Pool } = require('pg');
 const path = require('path');
 const inventoryRoutes = require('./routes/inventoryroutes');
 
+// Setup PostgreSQL pool
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
 });
 
-// Make database pool available
+// Make database pool available to controllers
 app.locals.db = pool;
 
-// View engine
+// Set view engine and views directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static files
+// Serve static files from /public
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
@@ -29,14 +30,21 @@ app.use('/inventory', inventoryRoutes);
 
 // 404 handler
 app.use((req, res) => {
-  res.status(404).render('error', { message: 'Page not found' });
+  res.status(404).render('error', { 
+    message: 'Page not found', 
+    status: 404 
+  });
 });
 
-// 500 error middleware
+// 500 error handler
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(500).render('error', { message: err.message });
+  res.status(500).render('error', { 
+    message: err.message, 
+    status: 500 
+  });
 });
 
+// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
