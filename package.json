@@ -1,0 +1,21 @@
+{
+  "name": "vehicle-detail-mvc",
+  "version": "1.0.0",
+  "description": "Vehicle Detail Page MVC Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["vehicle", "MVC", "Node.js", "Express"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
