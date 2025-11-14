@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { vehicleDetail } = require('../controllers/inventoryController');
 
+
 // Vehicle detail page
 router.get('/inventory/:id', vehicleDetail);
 
