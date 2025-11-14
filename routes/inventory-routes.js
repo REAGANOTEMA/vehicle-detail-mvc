@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { vehicleDetail } = require('../controllers/inventoryController');
+const { vehicleDetail } = require('../controllers/inventorycontroller');
 
 
 // Vehicle detail page
