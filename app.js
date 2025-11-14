@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 const { Pool } = require('pg');
 const path = require('path');
-const inventoryRoutes = require('./routes/inventoryRoutes');
+const inventoryRoutes = require('./routes/inventoryroutes');
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Vehicle Detail</title>
-    <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <a href="/inventory/vehicle/1">Vehicle 1</a>
-        <a href="/inventory/trigger-error">Trigger Error</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <title><%= vehicle.make %> <%= vehicle.model %> | Vehicle Detail</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Header Partial -->
+  <%- include('../partials/header') %>
 
-    <main><%- html %></main>
+  <!-- Navigation Partial -->
+  <%- include('../partials/navigation') %>
 
-    <footer>
-      <a href="/inventory/trigger-error">Click to trigger 500 error</a>
-    </footer>
-  </body>
+  <!-- Main Content -->
+  <main class="vehicle-detail-wrapper">
+    <!-- Build the vehicle HTML from utilities -->
+    <%- html %>
+  </main>
+
+  <!-- Footer Partial -->
+  <%- include('../partials/footer') %>
+
+  <script src="/js/main.js"></script>
+</body>
 </html>
