@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= vehicle.make %> <%= vehicle.model %> | Vehicle Detail</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    /* Page-specific styling */
+    .vehicle-detail-wrapper {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 1em;
+    }
+
+    .vehicle-detail {
+      display: flex;
+      flex-wrap: wrap;
+      background: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .vehicle-image {
+      flex: 1 1 400px;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 8px;
+      margin-right: 2em;
+      object-fit: cover;
+    }
+
+    .vehicle-info {
+      flex: 2 1 400px;
+    }
+
+    .vehicle-info p {
+      font-size: 1.1em;
+      margin: 0.5em 0;
+    }
+
+    .vehicle-info strong {
+      color: #333;
+    }
+
+    @media(max-width: 768px) {
+      .vehicle-detail {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .vehicle-image {
+        margin-right: 0;
+        margin-bottom: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Partial -->
+  <%- include('../partials/header') %>
+
+  <!-- Navigation Partial -->
+  <%- include('../partials/navigation') %>
+
+  <!-- Main Content -->
+  <main class="vehicle-detail-wrapper">
+    <%- html %>
+  </main>
+
+  <!-- Footer Partial -->
+  <%- include('../partials/footer') %>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
