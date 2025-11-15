@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Error <%= typeof status !== 'undefined' ? status : '' %></title>
+  <title>Error <%= status || "" %></title>
   <link rel="stylesheet" href="/css/styles.css">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,6 +28,7 @@
       color: #fff;
       margin: 0 1em;
       text-decoration: none;
+      font-weight: bold;
     }
 
     nav a:hover {
@@ -47,17 +49,20 @@
       padding: 2em;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 400px;
+      max-width: 450px;
+      width: 100%;
     }
 
     .error-box h1 {
-      font-size: 2em;
+      font-size: 2.2em;
       margin-bottom: 0.5em;
       color: #cc0000;
     }
 
     .error-box p {
-      margin-bottom: 1em;
+      margin-bottom: 1.2em;
+      font-size: 1.1em;
+      color: #333;
     }
 
     .error-box a {
@@ -65,8 +70,9 @@
       text-decoration: none;
       background: #007bff;
       color: #fff;
-      padding: 0.5em 1em;
+      padding: 0.6em 1.2em;
       border-radius: 5px;
+      font-weight: bold;
     }
 
     .error-box a:hover {
@@ -87,7 +93,7 @@
 
   <main>
     <div class="error-box">
-      <h1>Error <%= typeof status !== 'undefined' ? status : '' %></h1>
+      <h1>Error <%= status || "" %></h1>
       <p><%= message || "Something went wrong!" %></p>
       <a href="/">Return Home</a>
     </div>
