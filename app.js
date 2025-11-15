@@ -8,7 +8,9 @@ const express = require('express');
 const app = express();
 const { Pool } = require('pg');
 const path = require('path');
-const inventoryRoutes = require('./routes/inventoryRoute');
+
+// Correct lowercase path to match your actual file
+const inventoryRoutes = require('./routes/inventoryroute');
 
 // Setup PostgreSQL pool
 const pool = new Pool({

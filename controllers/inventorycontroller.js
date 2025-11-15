@@ -9,7 +9,7 @@ const { buildVehicleHTML } = require('../utilities/index');
 /**
  * Render the detail view for a single vehicle
  */
-const vehicledetail = async (req, res, next) => {
+const vehicleDetail = async (req, res, next) => {
   try {
     const vehicleId = req.params.id;
 
@@ -18,7 +18,10 @@ const vehicledetail = async (req, res, next) => {
 
     if (!vehicle) {
       // Vehicle not found – render 404 error view
-      return res.status(404).render('error', { message: 'Vehicle not found', status: 404 });
+      return res.status(404).render('error', { 
+        message: 'Vehicle not found', 
+        status: 404 
+      });
     }
 
     // Build HTML for the vehicle and pass to EJS view
@@ -26,6 +29,7 @@ const vehicledetail = async (req, res, next) => {
 
     res.render('inventory/vehicle-detail', { vehicle, html });
   } catch (err) {
+    // Forward error to Express error handler
     next(err);
   }
 };
@@ -39,4 +43,4 @@ const triggerError = (req, res, next) => {
   next(error);
 };
 
-module.exports = { vehicledetail, triggerError };
+module.exports = { vehicleDetail, triggerError };
