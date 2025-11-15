@@ -2,75 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= vehicle.make %> <%= vehicle.model %> | Vehicle Detail</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= vehicle.make %> <%= vehicle.model %></title>
   <link rel="stylesheet" href="/css/styles.css">
   <style>
-    /* Page-specific styling */
-    .vehicle-detail-wrapper {
-      max-width: 1200px;
-      margin: 2em auto;
-      padding: 1em;
-    }
-
     .vehicle-detail {
       display: flex;
       flex-wrap: wrap;
-      background: #fff;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2em;
       padding: 2em;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 0.8s ease-in;
     }
-
     .vehicle-image {
-      flex: 1 1 400px;
-      max-width: 500px;
+      max-width: 400px;
       width: 100%;
       border-radius: 8px;
-      margin-right: 2em;
-      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
     }
-
     .vehicle-info {
-      flex: 2 1 400px;
+      max-width: 500px;
     }
-
-    .vehicle-info p {
-      font-size: 1.1em;
-      margin: 0.5em 0;
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
-
-    .vehicle-info strong {
-      color: #333;
-    }
-
-    @media(max-width: 768px) {
-      .vehicle-detail {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .vehicle-image {
-        margin-right: 0;
-        margin-bottom: 1.5em;
-      }
-    }
+    .animate-fade { animation: fadeIn 0.8s ease-in; }
   </style>
 </head>
 <body>
-  <!-- Header Partial -->
-  <%- include('../partials/header') %>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/inventory/vehicle/1">Sample Vehicle</a>
+      <a href="/inventory/trigger-error">Trigger 500 Error</a>
+    </nav>
+  </header>
 
-  <!-- Navigation Partial -->
-  <%- include('../partials/navigation') %>
-
-  <!-- Main Content -->
-  <main class="vehicle-detail-wrapper">
-    <%- html %>
+  <main>
+    <div>
+      <%- html %>
+    </div>
   </main>
 
-  <!-- Footer Partial -->
-  <%- include('../partials/footer') %>
-
-  <script src="/js/main.js"></script>
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> Reagan Otema</p>
+  </footer>
 </body>
 </html>

@@ -3,12 +3,6 @@
  * Model functions for vehicles table
  */
 
-/**
- * Get a single vehicle by its ID
- * @param {object} db - PostgreSQL client
- * @param {number} id - Vehicle ID
- * @returns {object|null} Vehicle object or null if not found
- */
 const getVehicleById = async (db, id) => {
   try {
     const query = {
@@ -18,10 +12,7 @@ const getVehicleById = async (db, id) => {
     };
 
     const result = await db.query(query);
-
     if (result.rows.length === 0) return null;
-
-    // Return the vehicle object
     return result.rows[0];
   } catch (err) {
     console.error('Error fetching vehicle by ID:', err);

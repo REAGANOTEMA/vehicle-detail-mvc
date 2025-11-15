@@ -2,12 +2,13 @@
  * Author: Reagan Otema
  * Vehicle Detail Page - MVC App (Render-ready)
  */
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const { Pool } = require('pg');
 const path = require('path');
-const inventoryRoutes = require('./routes/inventoryroutes');
+const inventoryRoutes = require('./routes/inventoryRoute');
 
 // Setup PostgreSQL pool
 const pool = new Pool({
