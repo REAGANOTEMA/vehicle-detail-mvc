@@ -12,7 +12,6 @@ CREATE TABLE vehicles
   price NUMERIC,
   mileage INT,
   image VARCHAR(100),
-  -- Updated column name to match utilities/index.js
   description TEXT
 );
 

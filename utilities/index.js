@@ -1,20 +1,17 @@
 /**
  * Author: Reagan Otema
  * Wrap vehicle data in HTML for the detail page
+ * Ensures image names are always safe and correctly loaded.
  */
 
 function buildVehicleHTML(vehicle) {
-  // Map image names to local images folder
-  const imageMap = {
-    hummer: 'hummer.jpg',
-    survan: 'survan.jpg',
-    wrangler: 'wrangler.jpg',
-    'fire-truck': 'fire-truck.jpg',
-    'dog-car': 'dog-car.jpg'
-  };
+  // Normalize image filename safely
+  let imageFile = "default-vehicle.jpg";
 
-  // Determine the image file to use (default if missing)
-  const imageFile = imageMap[vehicle.image?.toLowerCase()] || 'default-vehicle.jpg';
+  if (vehicle.image) {
+    // Remove spaces, force lowercase, keep extension intact
+    imageFile = vehicle.image.trim().toLowerCase();
+  }
 
   return `
     <h1>${vehicle.make} ${vehicle.model}</h1>
