@@ -6,13 +6,13 @@
 const express = require('express');
 const router = express.Router();
 
-// Correct import (your file is lowercase)
+// Correct import (matches lowercase filename)
 const inventoryController = require('../controllers/inventorycontroller');
 
-// Route to show vehicle detail
+// Vehicle detail route
 router.get('/vehicle/:id', inventoryController.vehicledetail);
 
-// Route to trigger intentional 500 error
+// Trigger 500 error route
 router.get('/trigger-error', inventoryController.triggerError);
 
 module.exports = router;
