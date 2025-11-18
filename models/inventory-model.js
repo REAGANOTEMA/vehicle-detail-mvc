@@ -14,21 +14,14 @@ const getVehicleById = async (db, id) => {
       `,
       values: [id],
     };
-
     const result = await db.query(query);
-
-    // If no vehicle is found, return null
-    if (result.rows.length === 0) return null;
-
-    // Return the vehicle object
-    return result.rows[0];
+    return result.rows[0] || null;
   } catch (err) {
     console.error('Error fetching vehicle by ID:', err);
     throw err;
   }
 };
 
-module.exports = { getVehicleById };
 const getAllVehicles = async (db) => {
   try {
     const result = await db.query(`
@@ -36,7 +29,6 @@ const getAllVehicles = async (db) => {
       FROM vehicles
       ORDER BY id ASC
     `);
-
     return result.rows;
   } catch (err) {
     console.error("Error fetching all vehicles:", err);
