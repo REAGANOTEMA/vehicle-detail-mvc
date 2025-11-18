@@ -29,3 +29,19 @@ const getVehicleById = async (db, id) => {
 };
 
 module.exports = { getVehicleById };
+const getAllVehicles = async (db) => {
+  try {
+    const result = await db.query(`
+      SELECT id, make, model, year, price, mileage, image
+      FROM vehicles
+      ORDER BY id ASC
+    `);
+
+    return result.rows;
+  } catch (err) {
+    console.error("Error fetching all vehicles:", err);
+    throw err;
+  }
+};
+
+module.exports = { getVehicleById, getAllVehicles };

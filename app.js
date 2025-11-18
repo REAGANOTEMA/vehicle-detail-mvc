@@ -30,6 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/inventory', inventoryRoutes);
+app.get('/', (req, res) => {
+  res.redirect('/inventory');
+});
 
 // 404 handler
 app.use((req, res) => {

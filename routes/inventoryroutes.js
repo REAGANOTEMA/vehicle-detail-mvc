@@ -6,8 +6,11 @@
 const express = require('express');
 const router = express.Router();
 
-// Import controller (filename does NOT matter)
+// Controller
 const inventoryController = require('../controllers/inventorycontroller');
+
+// List all vehicles
+router.get('/', inventoryController.inventoryList);
 
 // Vehicle detail route
 router.get('/vehicle/:id', inventoryController.vehicleDetail);

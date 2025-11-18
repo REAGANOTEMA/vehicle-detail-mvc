@@ -39,5 +39,17 @@ const triggerError = (req, res, next) => {
   error.status = 500;
   next(error);
 };
+const { getAllVehicles, getVehicleById } = require('../models/inventory-model');
+const { buildVehicleHTML } = require('../utilities/index');
 
-module.exports = { vehicleDetail, triggerError };
+const inventoryList = async (req, res, next) => {
+  try {
+    const vehicles = await getAllVehicles(req.app.locals.db);
+
+    res.render('inventory/list', { vehicles });
+  } catch (err) {
+    next(err);
+  }
+};
+module.exports = { vehicleDetail, triggerError, inventoryList };
+
