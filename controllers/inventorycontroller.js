@@ -13,29 +13,26 @@ const vehicleDetail = async (req, res, next) => {
   try {
     const vehicleId = req.params.id;
 
-    // Fetch vehicle from database using prepared statement
+    // Fetch from database
     const vehicle = await getVehicleById(req.app.locals.db, vehicleId);
 
     if (!vehicle) {
-      // Vehicle not found – render 404 error view
       return res.status(404).render('error', { 
         message: 'Vehicle not found', 
         status: 404 
       });
     }
 
-    // Build HTML for the vehicle and pass to EJS view
     const html = buildVehicleHTML(vehicle);
 
     res.render('inventory/vehicle-detail', { vehicle, html });
   } catch (err) {
-    // Forward error to Express error handler
     next(err);
   }
 };
 
 /**
- * Intentional 500 error trigger for testing middleware
+ * Intentional 500 error trigger
  */
 const triggerError = (req, res, next) => {
   const error = new Error('This is an intentional 500 error');
